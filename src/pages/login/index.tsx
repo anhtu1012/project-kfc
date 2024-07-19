@@ -3,15 +3,19 @@ import AuthenLayout from "../../components/authen-layout";
 import api from "../../config/axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/features/userSlice";
 
 function Login() {
   const navigate = useNavigate();
-  const handleLogin = async (values) => {
+  const dispatch = useDispatch();
+  const handleLogin = async (values: any) => {
     try {
-      await api.post("login", values);
-      toast.success("ok rồi đấy");
-      navigate("/login");
-    } catch (err) {
+      const res = await api.post("login", values);
+      toast.success("Successfully logged in");
+      dispatch(login(res.data)); // lưu data vào login
+      navigate("/");
+    } catch (err: any) {
       toast.error(err.response.data);
     }
   };
