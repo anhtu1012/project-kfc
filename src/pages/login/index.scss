@@ -1,0 +1,84 @@
+.title {
+  text-transform: uppercase;
+  font-size: 2.28571429rem;
+  line-height: 38px;
+  font-weight: bold;
+  margin-bottom: 1.42857143rem;
+}
+.form-login {
+  &_input {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid gray;
+    transition: 1s;
+    &:hover {
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid gray;
+      background: none;
+      border-color: none;
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+  &_button {
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 20px 2px;
+    background: #28a745;
+    border-color: #28a745;
+    line-height: 20px;
+    font-size: 15px;
+    border-radius: 25px;
+    transition: 1s;
+    &:hover {
+      background-color: rgb(80, 160, 69) !important;
+    }
+  }
+  &_buttonGG {
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 20px 2px;
+    background: red;
+    border-color: red;
+    font-size: 15px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    transition: 1s;
+    &:hover {
+      background-color: rgb(219, 14, 27) !important;
+    }
+  }
+  &_buttonFB {
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 20px 2px;
+    background-color: #3b5998 !important;
+    border-color: #3b5998 !important;
+    line-height: 20px;
+    font-size: 15px;
+    border-radius: 25px;
+  }
+  & .ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-color: red !important;
+    transition: 1s;
+    &:hover {
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid gray;
+      background: none;
+      border-color: none;
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+}

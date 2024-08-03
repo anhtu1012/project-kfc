@@ -2,8 +2,8 @@ import { Button, Form, Input } from "antd";
 import AuthenLayout from "../../components/authen-layout";
 import api from "../../config/axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import "./index.scss";
 function Register() {
   const navigate = useNavigate();
   const handleRegister = async (values) => {
@@ -16,16 +16,19 @@ function Register() {
     }
   };
   return (
-    <div>
+    <div style={{ padding: "0px 50px" }}>
       <AuthenLayout>
+        <h1 style={{ paddingTop: "20px" }} className="title">
+          Register
+        </h1>
         <Form
           name="userForm"
           onFinish={handleRegister}
           initialValues={{
             role: "ADMIN",
           }}
+          className="form-register"
           labelCol={{ span: 24 }}
-          wrapperCol={{ span: 16 }}
         >
           <Form.Item
             label="Phone"
@@ -41,7 +44,7 @@ function Register() {
               },
             ]}
           >
-            <Input />
+            <Input className="form-register_input" />
           </Form.Item>
 
           <Form.Item
@@ -49,7 +52,7 @@ function Register() {
             name="password"
             rules={[{ required: true, message: "Please enter your password!" }]}
           >
-            <Input.Password />
+            <Input.Password className="form-register_input" />
           </Form.Item>
 
           <Form.Item
@@ -59,7 +62,7 @@ function Register() {
               { required: true, message: "Please enter your full name!" },
             ]}
           >
-            <Input />
+            <Input className="form-register_input" />
           </Form.Item>
           <Form.Item
             label="Email"
@@ -72,14 +75,33 @@ function Register() {
               },
             ]}
           >
-            <Input />
+            <Input className="form-register_input" />
           </Form.Item>
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+          <Form.Item>
+            <Button
+              className="form-register_button"
+              type="primary"
+              htmlType="submit"
+            >
               Submit
             </Button>
           </Form.Item>
         </Form>
+        <div style={{ textAlign: "center"}}>
+          <span>
+            Do you already have an account?{" "}
+            <Link
+              to="/login"
+              style={{
+                fontWeight: "bold",
+                color: "black",
+                textDecoration: "underline",
+              }}
+            >
+              Login
+            </Link>
+          </span>
+        </div>
       </AuthenLayout>
     </div>
   );

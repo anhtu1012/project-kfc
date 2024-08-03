@@ -23,7 +23,7 @@ function FoodList() {
     <div className="food-list">
       <Row gutter={24}>
         {foods.map((food) => (
-          <Col span={6}>
+          <Col span={6} xs={12} md={8} lg={6} style={{ paddingBottom: "30px" }}>
             <Card food={food} />
           </Col>
         ))}

@@ -6,7 +6,7 @@ type AuthenLayoutProps = {
 };
 function AuthenLayout({ children }: AuthenLayoutProps) {
   return (
-    <Row align={"middle"} gutter={30}>
+    <Row align={"middle"} gutter={50}>
       <Col span={12}>
         <Image src="https://static.kfcvietnam.com.vn/images/web/signin/lg/signin.jpg?v=LW5XYg" />
       </Col>

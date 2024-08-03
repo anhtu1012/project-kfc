@@ -1,0 +1,51 @@
+.form-register {
+  &_input {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid gray;
+    transition: 1s;
+    border-color: none !important;
+    box-shadow: none !important;
+    &:hover {
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid gray;
+      background: none;
+      border-color: none !important;
+      box-shadow: none !important;
+      outline: 0;
+    }
+  }
+  &_button {
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 20px 2px;
+    background: red;
+    border-color: red;
+    font-size: 15px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    transition: 1s;
+    &:hover {
+      background-color: rgb(219, 14, 27) !important;
+    }
+  }
+  & .ant-input-outlined.ant-input-status-error:not(.ant-input-disabled) {
+    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-color: red !important;
+    transition: 1s;
+    &:hover {
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid gray;
+      background: none;
+      border-color: none;
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+}

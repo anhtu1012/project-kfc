@@ -11,21 +11,27 @@ function Card({ food }: CardProps) {
         <img src={image} />
       </div>
       <div className="food-card_content">
-        <div style={{ height: "130px" }}>
+        <div>
           <div className="food-card_info">
             <span> {name}</span>
-            <span>
-              {" "}
-              {price}
-              <strong>đ</strong>
-            </span>
+            <div className="price">
+              <span>
+                {price}
+                <strong>đ</strong>
+              </span>
+              <span className="price_original">
+                122000 <strong>đ</strong>
+              </span>
+            </div>
           </div>
           <p className="description">
             {description.substring(0, 100)}
             {description.length > 100 && "..."}
           </p>
         </div>
-        <button>Thêm</button>
+      </div>
+      <div>
+        <button className="food-card_button">Thêm</button>
       </div>
     </div>
   );
