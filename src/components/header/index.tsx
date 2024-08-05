@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./index.scss";
 import { FaRegUserCircle } from "react-icons/fa";
 function Header() {
@@ -6,12 +6,14 @@ function Header() {
   return (
     <div className="header">
       <div className="header__left">
-        <img
-          src="https://static.kfcvietnam.com.vn/images/web/kfc-logo.svg?v=5.0"
-          alt="logo"
-          width={55}
-          className="header__logo"
-        />
+        <Link to="/">
+          <img
+            src="https://static.kfcvietnam.com.vn/images/web/kfc-logo.svg?v=5.0"
+            alt="logo"
+            width={55}
+            className="header__logo"
+          />
+        </Link>
         <ul className="header__navigation">
           <li>Thực Đơn</li>
           <li>Khuyết Mãi</li>

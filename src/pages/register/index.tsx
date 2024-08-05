@@ -83,11 +83,11 @@ function Register() {
               type="primary"
               htmlType="submit"
             >
-              Submit
+              Create Account
             </Button>
           </Form.Item>
         </Form>
-        <div style={{ textAlign: "center"}}>
+        <div style={{ textAlign: "center" }}>
           <span>
             Do you already have an account?{" "}
             <Link

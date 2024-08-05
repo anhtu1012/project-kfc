@@ -14,9 +14,18 @@ function Login() {
   const handleLogin = async (values: any) => {
     try {
       const res = await api.post("login", values);
+
+      const { role, token } = res.data; //destructuring
+      localStorage.setItem("token", token);
+
+      //refresh token
       toast.success("Successfully logged in");
       dispatch(login(res.data)); // lưu data vào login
-      navigate("/");
+      if (role === "ADMIN") {
+        navigate("/dashboard");
+      } else {
+        navigate("/");
+      }
     } catch (err: any) {
       toast.error(err.response.data);
     }
