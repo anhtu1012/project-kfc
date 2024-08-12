@@ -3,11 +3,8 @@ import { useEffect, useState } from "react";
 import api from "../../../config/axios";
 import { toast } from "react-toastify";
 import { FormInstance, useForm } from "antd/es/form/Form";
-interface Category {
-  id: number;
-  name: string;
-  description: string;
-}
+import { Category } from "../../../models/category";
+
 function ManageCaterogy() {
   const [dataSource, setDataSource] = useState<Category[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);

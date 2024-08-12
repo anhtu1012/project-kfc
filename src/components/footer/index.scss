@@ -1,0 +1,44 @@
+.final-footer {
+  background-color: #202124;
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 60px;
+    &_item {
+      &_title {
+        text-transform: uppercase;
+        font-size: 0.92857143rem;
+        font-weight: bold;
+      }
+      &_text {
+        padding-top: 10px;
+        color: #ababab;
+        transition: 0.3s;
+        &:hover {
+          color: white;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 350px;
+    .coppyright {
+      color: #ababab;
+      text-align: center;
+      font-size: 13px;
+    }
+    &_link {
+      color: white;
+      display: flex;
+      justify-content: right;
+      gap: 10px;
+      font-size: 40px;
+      padding-right: 60px;
+    }
+  }
+}
