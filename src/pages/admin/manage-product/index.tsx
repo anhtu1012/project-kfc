@@ -1,9 +1,9 @@
 import ManageTemplate from "../../../components/ManageDashboard";
 import { Category } from "../../../models/category";
-import { Button, Form, Input, Popconfirm } from "antd";
+import { Button, Form, Input, InputNumber, Popconfirm } from "antd";
 
-function ManageCategory() {
-  const title = "Category";
+function ManageProduct() {
+  const title = "Product";
   const formItem = (
     <>
       <Form.Item
@@ -15,6 +15,9 @@ function ManageCategory() {
       </Form.Item>
       <Form.Item name="description" label="Description">
         <Input.TextArea />
+      </Form.Item>
+      <Form.Item name="price" label="Price">
+        <InputNumber />
       </Form.Item>
     </>
   );
@@ -35,6 +38,18 @@ function ManageCategory() {
       title: "Description",
       dataIndex: "description",
       key: "description",
+      align: "center",
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+      key: "price",
+      align: "center",
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "image",
       align: "center",
     },
     {
@@ -75,10 +90,10 @@ function ManageCategory() {
         columns={columns}
         title={title}
         formItems={formItem}
-        apiURI="category"
+        apiURI="product"
       />
     </div>
   );
 }
 
-export default ManageCategory;
+export default ManageProduct;

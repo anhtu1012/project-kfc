@@ -1,9 +1,7 @@
 import { PieChartOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
-import useSelection from "antd/es/table/hooks/useSelection";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -26,6 +24,8 @@ function getItem(
 
 const items: MenuItem[] = [
   getItem("Category", "/dashboard/category", <PieChartOutlined />),
+  getItem("Product", "/dashboard/product", <PieChartOutlined />),
+  getItem("Voucher", "/dashboard/voucher", <PieChartOutlined />),
 ];
 
 const Dashboard: React.FC = () => {
