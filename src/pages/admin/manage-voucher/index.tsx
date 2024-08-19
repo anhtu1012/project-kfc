@@ -21,7 +21,7 @@ function ManageVoucher() {
         label="Start At"
         rules={[{ required: true, message: "Please select the start date!" }]}
       >
-        <DatePicker showTime />
+        <DatePicker format="YYYY-MM-DD HH:mm" showTime />
       </Form.Item>
 
       <Form.Item
@@ -29,7 +29,7 @@ function ManageVoucher() {
         label="End At"
         rules={[{ required: true, message: "Please select the end date!" }]}
       >
-        <DatePicker showTime />
+        <DatePicker format="YYYY-MM-DD HH:mm" showTime />
       </Form.Item>
 
       <Form.Item
@@ -82,37 +82,6 @@ function ManageVoucher() {
       dataIndex: "value",
       key: "value",
       align: "value",
-    },
-    {
-      title: "Action",
-      dataIndex: "id",
-      key: "id",
-      align: "center",
-      // eslint-disable-next-line no-unused-vars
-      render: (id: number, record: Category) => (
-        <div style={{ textAlign: "center" }}>
-          <Button
-            onClick={() => {
-              setShowModal(true);
-              form.setFieldsValue(record);
-            }}
-            style={{ marginRight: 8 }}
-          >
-            Update
-          </Button>
-          <Popconfirm
-            title="Delete the task"
-            description="Are you sure to delete this task?"
-            onConfirm={() => handleDeleteCategory(id)}
-            okText="Yes"
-            cancelText="No"
-          >
-            <Button type="primary" danger>
-              Delete
-            </Button>
-          </Popconfirm>
-        </div>
-      ),
     },
   ];
   return (

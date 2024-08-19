@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Form, Input, Modal, Table } from "antd";
+import { Button, Form, Input, Modal, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useForm } from "antd/es/form/Form";
 import { Category } from "../../models/category";
 import api from "../../config/axios";
+import Column from "antd/es/table/Column";
+import dayjs from "dayjs";
 
 export interface Column {
   title: string;
@@ -30,6 +32,66 @@ function ManageTemplate({
   const [loading, setLoading] = useState<boolean>(false);
   const [fetching, setFetching] = useState<boolean>(true);
   const [form] = useForm();
+  const [tableColumns, settableColumns] = useState<Column[]>([]);
+  useEffect(() => {
+    //useEffect này sẽ chạy khi giá trị columns thay đổi
+    const newColumns = [
+      ...columns,
+      {
+        title: "Action",
+        dataIndex: "id",
+        key: "id",
+        align: "center",
+        // eslint-disable-next-line no-unused-vars
+        render: (id, record) => (
+          <div style={{ textAlign: "center" }}>
+            <Button
+              onClick={() => {
+                setShowModal(true);
+                const newRecord = { ...record };
+                console.log(newRecord);
+                //vòng lập
+                // check tất cả các thuộc tính xem thằng nào là datetime
+
+                for (var key of Object.keys(newRecord)) {
+                  //record[key]
+                  // record['id'] <=> record.id
+
+                  const value = newRecord[key];
+
+                  var date: any = new Date(value);
+                  const time: any = date.getTime();
+                  if (typeof value === "number" || isNaN(time)) {
+                    // => thằng này k phải date time
+                  } else {
+                    // thằng này là date time => cần cập nhật lại đúng định dạng antd
+                    newRecord[key] = dayjs(value);
+                  }
+                }
+
+                form.setFieldsValue(newRecord);
+              }}
+              style={{ marginRight: 8 }}
+            >
+              Update
+            </Button>
+            <Popconfirm
+              title="Delete the task"
+              description="Are you sure to delete this task?"
+              onConfirm={() => handleDelete(id)}
+              okText="Yes"
+              cancelText="No"
+            >
+              <Button type="primary" danger>
+                Delete
+              </Button>
+            </Popconfirm>
+          </div>
+        ),
+      },
+    ];
+    settableColumns(newColumns);
+  }, [columns]);
 
   const fetchItem = async () => {
     try {
@@ -43,14 +105,14 @@ function ManageTemplate({
   useEffect(() => {
     fetchItem();
   }, []);
-  const handleDeleteCategory = async (id: number) => {
+  const handleDelete = async (id: number) => {
     try {
       await api.delete(`${apiURI}/${id}`);
-      const listAfterDelete = dataSource.filter(
-        (category) => category.id !== id
-      );
+      // const listAfterDelete = dataSource.filter(
+      //   (category) => category.id !== id
+      // );
       fetchItem();
-      setDataSource(listAfterDelete);
+      // setDataSource(listAfterDelete);
       toast.success("Successfully");
     } catch (error: any) {
       toast.error(error.response.data);
@@ -92,7 +154,7 @@ function ManageTemplate({
       <Table
         loading={fetching}
         dataSource={dataSource}
-        columns={columns}
+        columns={tableColumns}
         pagination={{ position: ["bottomCenter"] }}
       />
       ;

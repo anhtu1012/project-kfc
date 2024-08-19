@@ -52,37 +52,6 @@ function ManageProduct() {
       key: "image",
       align: "center",
     },
-    {
-      title: "Action",
-      dataIndex: "id",
-      key: "id",
-      align: "center",
-      // eslint-disable-next-line no-unused-vars
-      render: (id: number, record: Category) => (
-        <div style={{ textAlign: "center" }}>
-          <Button
-            onClick={() => {
-              setShowModal(true);
-              form.setFieldsValue(record);
-            }}
-            style={{ marginRight: 8 }}
-          >
-            Update
-          </Button>
-          <Popconfirm
-            title="Delete the task"
-            description="Are you sure to delete this task?"
-            onConfirm={() => handleDeleteCategory(id)}
-            okText="Yes"
-            cancelText="No"
-          >
-            <Button type="primary" danger>
-              Delete
-            </Button>
-          </Popconfirm>
-        </div>
-      ),
-    },
   ];
   return (
     <div>
