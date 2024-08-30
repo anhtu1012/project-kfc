@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { User } from "../../models/user";
-
+import { RootState } from "../RootReducer";
 //default value
 const initialState: null | User = null;
 
@@ -13,4 +13,5 @@ export const userSlice = createSlice({
   },
 });
 export const { login, logout } = userSlice.actions;
+export const selectUser = (store: RootState) => store.user;
 export default userSlice.reducer;

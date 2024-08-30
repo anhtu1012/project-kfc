@@ -1,10 +1,16 @@
+import { useDispatch } from "react-redux";
 import { Food } from "../../models/food";
 import "./index.scss";
+import { addToCart } from "../../redux/features/cartSlice";
 interface CardProps {
   food: Food;
 }
 function Card({ food }: CardProps) {
   const { name, description, image, price, id } = food; // ứng dụng destructuring
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(food));
+  };
   return (
     <div className="food-card">
       <div className="image">
@@ -31,7 +37,9 @@ function Card({ food }: CardProps) {
         </div>
       </div>
       <div>
-        <button className="food-card_button">Thêm</button>
+        <button className="food-card_button" onClick={handleAddToCart}>
+          Thêm
+        </button>
       </div>
     </div>
   );

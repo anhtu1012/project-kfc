@@ -5,8 +5,9 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import ManageCaterogy from "./pages/admin/manage-category";
 import Dashboard from "./components/dashboard";
-import ManageProduct from "./pages/admin/manage-product";
 import ManageVoucher from "./pages/admin/manage-voucher";
+import ManageFood from "./pages/admin/foood";
+import CheckOut from "./pages/check-out";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ function App() {
           element: <Login />,
         },
         {
+          path: "/check-out",
+          element: <CheckOut />,
+        },
+        {
           path: "/register",
           element: <Register />,
         },
@@ -37,12 +42,12 @@ function App() {
           element: <ManageCaterogy />,
         },
         {
-          path: "product",
-          element: <ManageProduct />,
-        },
-        {
           path: "Voucher",
           element: <ManageVoucher />,
+        },
+        {
+          path: "product",
+          element: <ManageFood />,
         },
       ],
     },

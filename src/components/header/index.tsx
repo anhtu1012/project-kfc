@@ -1,8 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./index.scss";
 import { FaRegUserCircle } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { selectCart } from "../../redux/features/cartSlice";
 function Header() {
   const navigate = useNavigate();
+  const cart = useSelector(selectCart);
   return (
     <div className="header">
       <div className="header__left">
@@ -29,7 +32,12 @@ function Header() {
           />
         </div>
         <div className="header__cart">
-          <span className="number">0</span>
+          <Link
+            to="/check-out"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            <span className="number">{cart.length}</span>
+          </Link>
         </div>
       </div>
     </div>
